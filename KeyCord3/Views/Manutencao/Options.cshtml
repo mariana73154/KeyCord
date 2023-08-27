@@ -1,0 +1,20 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="filtros">
+    <div class="categorias">
+        <a href="~/Manutencao/ListCategorias">Categorias</a>
+        <br />
+        <a href="~/Manutencao/ListJogos">Jogos</a>
+        <br />
+        <a href="~/Manutencao/ListPlataformas">Plataformas</a>
+        <br />
+        <a href="~/Manutencao/ListProdutoras">Produtoras</a>
+        <br />
+        @if (!this.User.IsInRole("Funcionario"))
+        {
+            <a href="~/Manutencao/ListFuncionarios">Pessoas</a>
+        }
+    </div>
+</div>

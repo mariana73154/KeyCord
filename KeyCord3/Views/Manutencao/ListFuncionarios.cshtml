@@ -1,0 +1,46 @@
+﻿@model IEnumerable<KeyCord3.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "ListFuncionarios";
+}
+
+<partial name="Options" />
+
+
+<div class="main">
+    <div class="principal_manut">
+        <h1>Funcionários</h1>
+        <br/>
+        <a class="btn" asp-area="Identity" asp-page="/Account/Register">Adicionar</a>
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NomeFunc)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhoneFunc)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                        <tr>
+                            <td class="td_n">
+                                @Html.DisplayFor(modelItem => item.NomeFunc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhoneFunc)
+                            </td>
+                            <td class="td_btn">
+                                <a class="btn apagar" asp-controller="Funcionarios" asp-action="Delete" asp-route-id="@item.IdFunc">Apagar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+        </table>
+        
+    </div>
+
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<KeyCord3.Models.Utilizador>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserUt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FotoUt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAspNet)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserUt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FotoUt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAspNet)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdUt">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdUt">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdUt">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

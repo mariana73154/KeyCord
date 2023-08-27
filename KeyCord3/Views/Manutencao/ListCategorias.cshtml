@@ -1,0 +1,44 @@
+﻿@model IEnumerable<KeyCord3.Models.Categorium>
+@using KeyCord3.Controllers
+
+@{
+    ViewData["Title"] = "ListCategorias";
+}
+<partial name="Options" />
+
+<div class="main">
+    <div class="principal_manut">
+
+    <h1>Categorias</h1>
+    <br />
+    <a asp-action="Create" class="btn cat" asp-controller="Categorias">Adicionar</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NomeCat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DescCat)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td class="td_n">
+                        @Html.DisplayFor(modelItem => item.NomeCat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescCat)
+                    </td>
+                    <td class="td_btn">
+                        <a id="edit" class="btn edit" asp-controller="Categorias" asp-action="Edit" asp-route-id="@item.IdCat">Editar</a>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    </div>
+</div>

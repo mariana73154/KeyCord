@@ -1,0 +1,76 @@
+﻿@model KeyCord3.Controllers.ViewModelHome
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="filtros">
+        <h2>Filtros</h2>
+        
+        <div class="categorias">
+            <h3>Categorias</h3>
+            <div class="filtros_listas">
+                @foreach (var cat in Model.Categorias)
+                {
+                    <input type="checkbox" id="@cat.IdCat" name="@cat.NomeCat" value="@cat.IdCat">
+                    <label for="@cat.IdCat">@cat.NomeCat</label><br>
+                }
+            </div>
+        </div>
+        
+        <div class="plataforma">
+            <h3>Plataforma</h3>
+            <div class="filtros_listas">
+                @foreach (var plat in Model.Plataformas)
+                {
+                    <input type="checkbox" id="@plat.IdPlat" name="@plat.NomePlat" value="@plat.IdPlat">
+                    <label for="@plat.IdPlat">@plat.NomePlat</label>
+                    <br>
+                }
+            </div>
+        </div>
+        <div class="produtora">
+            <h3>Produtora</h3>
+            <div class="filtros_listas">
+                @foreach (var prod in Model.Produtoras)
+                {
+                    <input type="checkbox" id="@prod.IdProd" name="@prod.NomeProd" value="@prod.IdProd">
+                    <label for="@prod.IdProd">@prod.NomeProd</label>
+                    <br>
+                }
+            </div>
+        </div>
+    </div>
+
+<div class="main">
+    <div class="title"><h1>KeyCord</h1></div>
+    
+    <div class="content_principal">
+        <div class="list_conteudos">
+            @foreach(var jogo in Model.Jogos)
+            { 
+                <a asp-controller="Jogos" asp-action="Details" asp-route-id="@jogo.IdJogo" class="new_product">
+                    <img src="~/Images/@jogo.FotoJogo" alt="img_game">
+                    <div class="inf-e">
+                        <div class="inf">
+                            <div class="he">
+                                <h4>@jogo.NomeJogo</h4>
+                
+                            </div>
+                            <div class="hi">
+                                @if (jogo.Desconto > 0)
+                                {
+                                    <h6 class="ex">@jogo.PrecoJogo€</h6>
+                                    <h3>@(jogo.PrecoJogo - (jogo.PrecoJogo / jogo.Desconto))€</h3>
+                                    <p class="promo">@jogo.Desconto % OFF</p>   
+                                }
+                                else{
+                                    <h3>@jogo.PrecoJogo€</h3>
+                                }   
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

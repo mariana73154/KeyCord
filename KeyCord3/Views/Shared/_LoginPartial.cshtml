@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/KeyCord3.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+@*<ul class="navbar-nav">
+*@@if (SignInManager.IsSignedIn(User))
+{
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">
+                <svg aria-hidden="true"
+                 focusable="false"
+                 role="img"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 512 512"
+                 class="svg-inline--fa fa-w-16 fa-5x">
+                    <path fill="currentColor"
+                      d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+                      class="fa-secondary" />
+                </svg>
+                <span class="link-text">Profile</span>
+            </a>
+        //fazer logout
+@*    <li class="nav-item">
+        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+        </form>
+    </li>*@
+}
+else
+{
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">
+                <svg aria-hidden="true"
+                 focusable="false"
+                 role="img"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 512 512"
+                 class="svg-inline--fa fa-w-16 fa-5x">
+                    <path fill="currentColor"
+                      d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+                      class="fa-secondary" />
+                </svg>
+                <span class="link-text">Login</span>
+            </a>
+}
+@*</ul>*@

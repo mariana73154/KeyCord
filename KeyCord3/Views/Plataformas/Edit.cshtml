@@ -1,0 +1,34 @@
+﻿@model KeyCord3.Models.Plataforma
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="principal_center_edit">
+    <h1>Editar Plataforma</h1>
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdPlat" />
+                <div class="form-group">
+                    <label asp-for="NomePlat" class="control-label"></label>
+                    <input asp-for="NomePlat" class="form-control" />
+                    <span asp-validation-for="NomePlat" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DescPlat" class="control-label"></label>
+                    <input asp-for="DescPlat" class="form-control" />
+                    <span asp-validation-for="DescPlat" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Gurdar" class="btn btn-primary" />
+                </div>
+            </form>
+            <br />
+            <a class="btn edit" asp-action="ListPlataformas" asp-controller="Manutencao">Voltar</a>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<KeyCord3.Models.Jogo>
+@using KeyCord3.Controllers
+@using KeyCord3.Data;
+@inject ApplicationDbContext context;
+@{
+    ViewData["Title"] = "ListJogos";
+
+}
+
+
+<partial name="Options" />
+
+<div class="main">
+    <div class="principal_manut">
+        <h1>Jogos</h1>
+        <br/>
+        @if (this.User.IsInRole("Funcionario"))
+        {
+            <a class="btn" asp-controller="Jogos" asp-action="Create">Adicionar</a>
+        }
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NomeJogo)
+                    </th>
+                    <th>
+                        Adicionado por
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model=>model.DataEdicao)
+                     </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="td_n" id="jogo">
+                                @Html.DisplayFor(modelItem => item.NomeJogo)
+                            </td>
+                            <td>
+                                @context.Funcionarios.Find(item.IdFunc).NomeFunc
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataEdicao)
+                            </td>
+                            @if (Int32.Parse(ViewData["userId"].ToString()) == item.IdFunc) 
+                            {
+                                <td class="td_btn">
+                                    <a class="btn edit" id="edit" asp-controller="Jogos" asp-action="Edit" asp-route-id="@item.IdJogo">Editar</a>
+                                </td>
+
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+
+        </table>
+        
+    </div>
+</div>

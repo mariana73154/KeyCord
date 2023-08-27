@@ -1,0 +1,73 @@
+﻿@model KeyCord3.Models.Jogo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="principal_center_edit">
+    <h1>Editar Jogo</h1>
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdJogo" />
+                <div class="form-group">
+                    <label asp-for="NomeJogo" class="control-label"></label>
+                    <input asp-for="NomeJogo" class="form-control" />
+                    <span asp-validation-for="NomeJogo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrecoJogo" class="control-label"></label>
+                    <input asp-for="PrecoJogo" class="form-control" />
+                    <span asp-validation-for="PrecoJogo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Desconto" class="control-label"></label>
+                    <input asp-for="Desconto" class="form-control" />
+                    <span asp-validation-for="Desconto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DescJogo" class="control-label"></label>
+                    <input asp-for="DescJogo" class="form-control" />
+                    <span asp-validation-for="DescJogo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AnoPublic" class="control-label"></label>
+                    <input asp-for="AnoPublic" class="form-control" />
+                    <span asp-validation-for="AnoPublic" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FotoJogo" class="control-label"></label>
+                    <input asp-for="FotoJogo" type="file" class="form-control" />
+                    <span asp-validation-for="FotoJogo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdCat" class="control-label"></label>
+                    <select asp-for="IdCat" class="form-control" asp-items="ViewBag.IdCat"></select>
+                    <span asp-validation-for="IdCat" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdProd" class="control-label"></label>
+                    <select asp-for="IdProd" class="form-control" asp-items="ViewBag.IdProd"></select>
+                    <span asp-validation-for="IdProd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdPlat" class="control-label"></label>
+                    <select asp-for="IdPlat" class="form-control" asp-items="ViewBag.IdPlat"></select>
+                    <span asp-validation-for="IdPlat" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+            </form>
+            <br />
+            <a class="btn edit" asp-action="ListJogos" asp-controller="Manutencao">Voltar</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

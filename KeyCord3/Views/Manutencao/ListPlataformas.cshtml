@@ -1,0 +1,44 @@
+﻿@model IEnumerable<KeyCord3.Models.Plataforma>
+
+@{
+    ViewData["Title"] = "ListPlataformas";
+}
+<partial name="Options" />
+
+<div class="main">
+    <div class="principal_manut">
+
+        <h1>Plataformas</h1>
+        <br/>
+        <a class="btn" asp-action="Create" asp-controller="Plataformas">Adicionar</a>
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NomePlat)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DescPlat)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                            <tr>
+                                <td class="td_n">
+                                    @Html.DisplayFor(modelItem => item.NomePlat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DescPlat)
+                                </td>
+                                <td class="td_btn" >
+                                    <a id="edit" class="btn edit" asp-controller="Plataformas" asp-action="Edit" asp-route-id="@item.IdPlat">Editar</a>
+                                </td>
+                            </tr>
+                    }
+                </tbody>
+        </table>
+    </div>
+        
+</div>

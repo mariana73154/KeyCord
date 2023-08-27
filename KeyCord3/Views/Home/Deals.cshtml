@@ -1,0 +1,27 @@
+﻿@model KeyCord3.Controllers.ViewModelHome
+@{
+    ViewData["Title"] = "Deals";
+}
+
+<div class="main_deals">
+    <div class="title"><h1>Descontos</h1></div>
+    
+    <div class="content_principal">
+        <div class="list_conteudos">
+            @foreach(var jogo in Model.Jogos)
+            { 
+                <a asp-controller="Jogos" asp-action="Details" asp-route-id="@jogo.IdJogo" class="new_product">
+                    <img src="~/Images/@jogo.FotoJogo" alt="img_game">
+                    <div class="inf">
+                        <div class="he">
+                            <h4>@jogo.NomeJogo</h4>
+                            <h3>@jogo.PrecoJogo€</h3>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+

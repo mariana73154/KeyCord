@@ -1,0 +1,47 @@
+﻿@using KeyCord3.Data;
+@using Microsoft.AspNetCore.Identity;
+@model KeyCord3.Models.Jogo
+@inject ApplicationDbContext Context
+@inject SignInManager<IdentityUser> signInManager
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="pagina_jogo">
+    <div class="main_jogo">
+        <div class="cima">
+            <div class="juntos">
+                <div class="img_jogo">
+                    <img src="~/Images/@Model.FotoJogo" />
+                </div>
+                <div class="text_title">
+                    <h1>@Model.NomeJogo</h1>
+                    <h6>@Context.Categoria.Find(Model.IdCat).NomeCat</h6>
+                    <h6>@Context.Produtoras.Find(Model.IdProd).NomeProd</h6>
+                    <h6>@Context.Plataformas.Find(Model.IdPlat).NomePlat</h6>
+                </div>
+            </div>
+            <div class="price_jogo">
+                
+                @if (Model.Desconto > 0)
+                {
+                    <h1 class="ex">@Model.PrecoJogo</h1>
+                    <h1>@(Model.PrecoJogo - (Model.PrecoJogo / Model.Desconto)) €</h1>
+                    <h3>@Model.Desconto % OFF</h3>   
+                }
+                else{
+                    <h1>@Model.PrecoJogo</h1>
+                }
+                @if (signInManager.IsSignedIn(User) && User.IsInRole("Cliente"))
+                {
+                    <a asp-action="Comprar" asp-route-id="@Model.IdJogo" class="btn">COMPRAR</a>
+                }
+            </div>
+        </div>
+        <span>@TempData["Erro"]</span>
+        <div class="baixo">
+            <p class="desc">@Model.DescJogo</p>
+        </div>
+    </div>
+</div>

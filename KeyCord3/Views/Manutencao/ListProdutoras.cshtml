@@ -1,0 +1,44 @@
+﻿@model IEnumerable<KeyCord3.Models.Produtora>
+
+@{
+    ViewData["Title"] = "ListProdutoras";
+}
+<partial name="Options" />
+
+<div class="main">
+    <div class="principal_manut">
+    <h1>Produtoras</h1>
+    <br/>    
+    <a class="btn" asp-action="Create" asp-controller="Produtoras">Adicionar</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeProd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescProd)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td class="td_n">
+                    @Html.DisplayFor(modelItem => item.NomeProd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescProd)
+                </td>
+                <td class="td_btn">
+                    <a class="btn edit" asp-controller="Produtoras" asp-action="Edit" asp-route-id="@item.IdProd">Editar</a> 
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+    </div>
+    
+</div>

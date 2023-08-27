@@ -1,0 +1,544 @@
+/*------------- RoOt -------------*/
+:root {
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --text-terciary:#989A91;
+    --bg-primary: #282b30;
+    --bg-secondary: #1e2124;
+    --bg-terciary: #36393e;
+    --bg-fourier: #424549;
+    --purple: #6649b8;
+    --transition-speed: 600ms;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background: var(--bg-fourier);
+}
+
+a {
+    color: var(--text-primary);
+}
+
+.navbar {
+    position: fixed;
+    background-color: var(--bg-primary);
+    transition: width 600ms ease;
+    overflow: scroll;
+    height: 100vh;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    z-index: 10;
+}
+
+.navbar::-webkit-scrollbar {
+    display: none;
+}
+
+.pag-title {
+    color: #b6b6b6;
+    background: #282b30;
+    text-align: center;
+    font-size: 25px;
+}
+
+.tittle {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+
+.btn {
+    color: #fff;
+    background: var(--purple);
+    border: 1px solid var(--purple);
+    border-radius: 35px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.btn:hover {
+    color: var(--bg-primary);
+    background: #fff;
+}
+
+.form-check-input:checked {
+    background: var(--purple);
+    border: 1px solid transparent;
+}
+
+.form-control {
+    color: var(--text-primary);
+    border: 1px solid transparent;
+}
+
+.form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown) {
+    padding: 10px 30px;
+}
+
+hr:not([size]) {
+    height: 0;
+}
+
+.input-group-text {
+    margin-top: 31px;
+    border-radius: 0 50px 50px 0;
+    padding: 0 15px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.input-group-append {
+    height: 56px;
+}
+
+/* ---------------------------- LOGIN ---------------------------*/
+.logres-center {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.logres-center {
+    color: var(--text-primary);
+}
+
+.form-control {
+    width: 450px;
+    margin: 30px 0;
+    border-radius: 35px;
+    background-color: var(--bg-primary);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.logres-center div {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.logres-center button {
+    margin-top: 100px;
+    padding: 10px 50px;
+}
+
+.logres-center p {
+    margin-top: 150px;
+}
+
+.logres-center p a {
+    color: var(--text-primary);
+}
+
+/* ----------------------------- Filtros --------------------------- */
+.filtros {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 400px;
+    z-index: 9;
+    background-color: var(--bg-terciary);
+    color: var(--text-primary);
+    overflow: scroll;
+}
+
+.filtros::-webkit-scrollbar {
+    display: none;
+}
+
+.filtros h2 {
+    font-size: 22px;
+    border-bottom: 1px solid var(--bg-fourier);
+    width: 100%;
+    padding: 7px 110px;
+}
+
+.filtros h3 {
+    font-size: 19px;
+    padding: 7px 0;
+}
+
+.filtros > div {
+    width: 100%;
+    padding: 35px 0 0 120px;
+}
+
+.filtros_listas {
+    padding-left: 10px;
+    font-size: 17px;
+}
+
+.categorias {
+    display: flex;
+    flex-direction: column;
+}
+
+.categorias a {
+    color: var(--text-primary);
+    text-decoration: none;
+    background: var(--bg-primary);
+    padding: 5px;
+    border-radius: 10px;
+    width: 85%;
+    text-align: center;
+}
+
+.categorias a:hover,
+.filtros a:hover {
+    background: var(--bg-secondary);
+    color: var(--purple);
+}
+
+/* ----------------------------- Main --------------------------- */
+.main {
+    position: absolute;
+    left: 400px;
+    top: 0;
+    right: 0;
+}
+
+.main_deals {
+    position: absolute;
+    left: 80px;
+    top: 0;
+    right: 0;
+}
+
+.title {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    background: var(--bg-primary);
+    height: 41px;
+}
+
+.title h1 {
+    color: var(--text-primary);
+    font-size: 26px;
+}
+
+.main_deals .list_conteudos {
+    grid-template-columns: repeat(4,1fr);
+}
+
+.list_conteudos{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items:center;
+    margin:0 50px 35px 50px;
+}
+
+.list_conteudos img{
+    width: 250px;
+}
+
+.new_product {
+    margin-top: 35px;
+    border-radius: 10px;
+    background-color: var(--bg-primary);
+    text-decoration: none;
+    width: 250px;
+}
+
+.new_product img{
+    border-radius:10px 10px 0 0;
+    height: 320px;
+}
+
+.new_product h3{
+    width:25%;
+    text-align:end;
+    font-size:25px;
+}
+
+.new_product h4{
+    width:75%;
+    font-size:20px;
+}
+
+.he{
+    display:flex;
+    flex-direction:column;
+    padding: 10px 10px 0;
+    color: var(--text-secondary);
+    align-items:center;
+}
+
+.hi {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.hi h3,
+.hi h6 {
+    margin-bottom: 0;
+}
+
+.hi h3 {
+    word-break: keep-all;
+}
+
+.promo {
+    color: var(--purple);
+    text-align: center;
+}
+
+.inf {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.ex {
+    text-decoration: var(--purple) line-through;
+    color: var(--text-primary);
+}
+
+/* ------------- MANUTENCAO ------------------------ */
+.principal_center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.principal_center_edit {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    height: 100%;
+    overflow: hidden;
+    color: var(--text-primary);
+}
+
+.principal_center h3 {
+    color: var(--text-primary)
+}
+
+.principal_center h1 {
+    color: var(--text-secondary)
+}
+
+.principal_manut {
+    margin-top:50px;
+    padding: 0 50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.principal_manut h1 {
+    color: var(--text-secondary);
+}
+
+.table{
+    margin-top: 25px;  
+    width: 100%;
+}
+
+table thead tr {
+    color: var(--text-primary);
+    background-color: var(--bg-fourier);
+}
+
+.table tbody {
+    border: 1px solid var(--bg-fourier);
+}
+
+table tr {
+    background: var(--bg-terciary);
+    color: var(--text-primary);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--bg-fourier);
+}
+
+table tbody tr:hover {
+    background-color: var(--bg-secondary);
+}
+
+.td_n {
+    width: 300px;
+}
+
+.td_btn {
+    width: 100px;
+}
+
+.edit {
+    background: var(--text-primary);
+    border: 1px solid var(--text-primary);
+    color: var(--bg-secondary);
+}
+
+.edit:hover,
+.apagar:hover{
+    border: 1px solid transparent;
+}
+
+.apagar {
+    background: red;
+    border: 1px solid red;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-fourier);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--bg-fourier);
+}
+
+.back {
+    color: var(--text-primary);
+    margin-top: 10px;
+}
+
+/* ----------- PAGINA JOGO --------------------- */
+.pagina_jogo {
+    width: 100%;
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+}
+
+.main_jogo{
+    display:flex;
+    flex-direction:column;
+    margin-top:50px;
+    padding:0;
+}
+
+.cima{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-evenly;
+}
+
+.juntos{
+    width:30%;
+    display:flex;
+    flex-direction:row;
+    align-items:flex-end;
+    justify-content:center;    
+}
+
+.img_jogo{
+    height: 300px;
+    width: 300px;
+}
+
+.juntos img{
+    height:100%;
+    width:100%;
+    border-radius: 10px;
+}
+
+.text_title{
+    margin-bottom: 60px;
+    margin-left: 20px;
+}
+
+.text_title h1{
+    margin-left:2px;
+    color: var(--text-secondary);
+}
+
+.text_title h6{
+    color: var(--text-terciary);
+}
+
+.price_jogo{
+    height:90px;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:flex-end;
+    color: var(--text-secondary);
+}
+
+.price_jogo h3{
+    color: var(--purple);
+    background: var(--bg-secondary);
+    padding: 7px 10px;
+    border-radius: 15px;
+}
+
+.baixo {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.desc {
+    width: 60%;
+    background-color: var(--bg-secondary);
+    text-align: justify;
+    padding: 100px;
+    border-radius: 15px;
+    color: var(--text-primary);
+}
+
+.manage {
+    padding: 100px;
+}
+
+.manage h3{
+    color: var(--text-secondary);
+}
+
+.form-floating {
+    display: flex;
+    width: 450px;
+    color: var(--text-primary);
+}
